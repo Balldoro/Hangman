@@ -4,4 +4,4 @@ import View from "./View";
 
 const wordData = new WordData();
 const view = new View();
-view.showKeyboard();
+wordData.getWord().then(word => view.init(word));
