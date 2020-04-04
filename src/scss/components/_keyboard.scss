@@ -18,5 +18,13 @@
     &:hover {
       transform: scale(1.15);
     }
+    &--disabled {
+      border: 2px solid $bg-color;
+      color: rgb(122, 122, 122);
+      &:hover {
+        transform: none;
+        cursor: auto;
+      }
+    }
   }
 }

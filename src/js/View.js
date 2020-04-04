@@ -37,6 +37,10 @@ class View {
     });
     return keys;
   }
+
+  disableKey(key) {
+    key.classList.add("keyboard__key--disabled");
+  }
 }
 
 export default View;
