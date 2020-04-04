@@ -8,5 +8,5 @@ const view = new View();
 const keyboard = new Keyboard();
 wordData.getWord().then(word => {
   view.init(word);
-  keyboard.disableKey();
+  keyboard.handleOnClick(word);
 });
