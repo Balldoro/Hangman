@@ -67,6 +67,7 @@ class View {
 
   disableKey(key) {
     key.classList.add("keyboard__key--disabled");
+    key.setAttribute("disabled", true);
   }
 }
 

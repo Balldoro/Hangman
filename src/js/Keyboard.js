@@ -9,15 +9,15 @@ class Keyboard {
   handleOnClick(word) {
     document.querySelector(".keyboard").addEventListener("click", event => {
       const key = event.target;
-      this.disableKey(key);
-      this.isKeyInWord(word, key);
+      if (key.tagName === "BUTTON") {
+        this.disableKey(key);
+        this.isKeyInWord(word, key);
+      }
     });
   }
 
   disableKey(key) {
-    if (key.tagName === "BUTTON") {
-      this.view.disableKey(key);
-    }
+    this.view.disableKey(key);
   }
 
   isKeyInWord(word, key) {
