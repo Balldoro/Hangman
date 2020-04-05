@@ -5,12 +5,15 @@ import state from "./state";
 
 class Game {
   constructor() {
+    this.settings = document.querySelector(".settings");
     this.keyboard = new Keyboard();
     this.view = new View();
     this.wordData = new WordData();
   }
 
-  startGame() {
+  startGame(event) {
+    event.preventDefault();
+    state.updatePossibleMistakes(this.settings.mistakes.value);
     this.wordData.getWord().then(word => {
       state.updateWord(word);
       this.view.init();

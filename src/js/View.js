@@ -6,6 +6,7 @@ class View {
   }
 
   init() {
+    this.reset();
     this.showWordContainer();
     this.showKeyboard();
     this.showMistakesContainer();

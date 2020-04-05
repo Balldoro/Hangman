@@ -12,6 +12,9 @@ const state = {
   updateMadeMistakes() {
     this.madeMistakes++;
   },
+  updatePossibleMistakes(possibleMistakes) {
+    this.possibleMistakes = Number(possibleMistakes);
+  },
   updateKeys(key) {
     this.pressedKey = key;
     this.usedKeys.push(key);

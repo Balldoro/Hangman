@@ -7,6 +7,37 @@
     <title>Hangman Game</title>
   </head>
   <body>
-    <main class="hangman"></main>
+    <main class="hangman">
+      <h1 class="hangman__title">Hangman Game</h1>
+      <form class="settings">
+        <div class="settings__mistakes-container">
+          <label class="settings__mistake-label" for="mistakes-1">9</label>
+          <input
+            type="radio"
+            id="mistakes-1"
+            value="9"
+            class="settings__mistake"
+            name="mistakes"
+          />
+          <label class="settings__mistake-label" for="mistakes-2">10</label>
+          <input
+            type="radio"
+            id="mistakes-2"
+            value="10"
+            class="settings__mistake"
+            name="mistakes"
+          />
+          <label class="settings__mistake-label" for="mistakes-3">11</label>
+          <input
+            type="radio"
+            id="mistakes-3"
+            value="11"
+            class="settings__mistake"
+            name="mistakes"
+          />
+        </div>
+        <button class="btn btn--start">Start New Game</button>
+      </form>
+    </main>
   </body>
 </html>

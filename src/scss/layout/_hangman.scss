@@ -5,4 +5,12 @@
   justify-content: center;
   align-items: center;
   background-color: $bg-color;
+  &__title {
+    margin-bottom: 3rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: $xl-font;
+    color: $main-color;
+    text-transform: uppercase;
+    text-align: center;
+  }
 }
