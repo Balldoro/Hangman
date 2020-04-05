@@ -100,6 +100,12 @@ class View {
     lostView.textContent = "You lost!";
     return lostView;
   }
+
+  reset() {
+    while (this.gameBoard.firstChild) {
+      this.gameBoard.removeChild(this.gameBoard.firstChild);
+    }
+  }
 }
 
 export default View;
