@@ -88,6 +88,18 @@ class View {
     winView.textContent = "You win!";
     return winView;
   }
+
+  showLostView() {
+    const lostView = this.createLostView();
+    this.gameBoard.appendChild(lostView);
+  }
+
+  createLostView() {
+    const lostView = document.createElement("div");
+    lostView.classList.add("game-view--lost");
+    lostView.textContent = "You lost!";
+    return lostView;
+  }
 }
 
 export default View;

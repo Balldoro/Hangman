@@ -36,6 +36,7 @@ class Keyboard {
   keyIsNotInWord() {
     state.updateMadeMistakes();
     this.view.updateMistakesMessage();
+    this.isGameLost();
   }
 
   keyIsInWord(key) {
@@ -54,6 +55,12 @@ class Keyboard {
   isGameWon() {
     if (state.isGameWon) {
       this.view.showWinView();
+    }
+  }
+
+  isGameLost() {
+    if (state.madeMistakes === state.possibleMistakes) {
+      this.view.showLostView();
     }
   }
 }
