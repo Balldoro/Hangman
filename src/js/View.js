@@ -76,6 +76,18 @@ class View {
     key.classList.add("keyboard__key--disabled");
     key.setAttribute("disabled", true);
   }
+
+  showWinView() {
+    const winView = this.createWinView();
+    this.gameBoard.appendChild(winView);
+  }
+
+  createWinView() {
+    const winView = document.createElement("div");
+    winView.classList.add("game-view--win");
+    winView.textContent = "You win!";
+    return winView;
+  }
 }
 
 export default View;

@@ -41,9 +41,20 @@ class Keyboard {
   keyIsInWord(key) {
     state.word.split("").filter((letter, index) => {
       if (letter === key.textContent) {
+        state.updateCorrectGuesses(key);
+        state.updateIsGameWon(
+          state.word.length === state.correctGuesses.length
+        );
         this.view.putLetterIntoPlaceholder(letter, index);
+        this.isGameWon();
       }
     });
+  }
+
+  isGameWon() {
+    if (state.isGameWon) {
+      this.view.showWinView();
+    }
   }
 }
 
