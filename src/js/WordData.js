@@ -1,7 +1,10 @@
+import state from "./state";
+
 class WordData {
   async getWord() {
     const response = await fetch(
-      "https://wordsapiv1.p.rapidapi.com/words/?random=true",
+      `https://wordsapiv1.p.rapidapi.com/words/?random=true&lettersMin=3&lettersMax=12&frequencyMin=
+      ${state.difficulty}&frequencyMax=${state.difficulty + 2}`,
       {
         method: "GET",
         headers: {

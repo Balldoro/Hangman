@@ -14,6 +14,7 @@ class Game {
   startGame(event) {
     event.preventDefault();
     state.updatePossibleMistakes(this.settings.mistakes.value);
+    state.updateDifficulty(this.settings.difficulty.value);
     this.wordData.getWord().then(word => {
       state.updateWord(word);
       this.view.init();

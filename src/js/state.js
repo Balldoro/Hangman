@@ -1,5 +1,6 @@
 const state = {
   word: "",
+  difficulty: "",
   possibleMistakes: 10,
   madeMistakes: 0,
   pressedKey: "",
@@ -8,6 +9,9 @@ const state = {
   isGameWon: false,
   updateWord(word) {
     this.word = word;
+  },
+  updateDifficulty(difficulty) {
+    this.difficulty = difficulty;
   },
   updateMadeMistakes() {
     this.madeMistakes++;
