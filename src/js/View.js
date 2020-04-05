@@ -25,6 +25,11 @@ class View {
     return placeholder;
   }
 
+  putLetterIntoPlaceholder(letter, index) {
+    const placeholders = document.querySelectorAll(".word__placeholder");
+    placeholders[index].textContent = letter;
+  }
+
   showMistakesContainer() {
     const mistakesContainer = this.createMistakesContainer();
     mistakesContainer.innerHTML = this.showMistakesMessage();

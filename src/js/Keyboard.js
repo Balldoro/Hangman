@@ -22,9 +22,23 @@ class Keyboard {
 
   isKeyInWord(word, key) {
     if (word.indexOf(key.textContent) === -1) {
-      this.mistakes++;
-      this.view.updateMistakesMessage(this.mistakes);
+      this.keyIsNotInWord();
+    } else {
+      this.keyIsInWord(word, key);
     }
+  }
+
+  keyIsNotInWord() {
+    this.mistakes++;
+    this.view.updateMistakesMessage(this.mistakes);
+  }
+
+  keyIsInWord(word, key) {
+    word.split("").filter((letter, index) => {
+      if (letter === key.textContent) {
+        this.view.putLetterIntoPlaceholder(letter, index);
+      }
+    });
   }
 }
 
