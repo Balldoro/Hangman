@@ -1,40 +1,45 @@
 import View from "./View";
+import state from "./state";
 
 class Keyboard {
   constructor() {
     this.view = new View();
-    this.mistakes = 0;
   }
 
-  handleOnClick(word) {
-    document.querySelector(".keyboard").addEventListener("click", event => {
-      const key = event.target;
-      if (key.tagName === "BUTTON") {
-        this.disableKey(key);
-        this.isKeyInWord(word, key);
-      }
-    });
+  init() {
+    document
+      .querySelector(".keyboard")
+      .addEventListener("click", event => this.handleOnClick(event));
+  }
+
+  handleOnClick(event) {
+    const key = event.target;
+    if (key.tagName === "BUTTON") {
+      state.updateKeys(key.textContent);
+      this.disableKey(key);
+      this.isKeyInWord(key);
+    }
   }
 
   disableKey(key) {
     this.view.disableKey(key);
   }
 
-  isKeyInWord(word, key) {
-    if (word.indexOf(key.textContent) === -1) {
+  isKeyInWord(key) {
+    if (state.word.indexOf(key.textContent) === -1) {
       this.keyIsNotInWord();
     } else {
-      this.keyIsInWord(word, key);
+      this.keyIsInWord(key);
     }
   }
 
   keyIsNotInWord() {
-    this.mistakes++;
-    this.view.updateMistakesMessage(this.mistakes);
+    state.updateMadeMistakes();
+    this.view.updateMistakesMessage();
   }
 
-  keyIsInWord(word, key) {
-    word.split("").filter((letter, index) => {
+  keyIsInWord(key) {
+    state.word.split("").filter((letter, index) => {
       if (letter === key.textContent) {
         this.view.putLetterIntoPlaceholder(letter, index);
       }

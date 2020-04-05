@@ -1,19 +1,21 @@
+import state from "./state";
+
 class View {
   constructor() {
     this.gameBoard = document.querySelector(".hangman");
   }
 
-  init(word) {
-    this.showWordContainer(word);
+  init() {
+    this.showWordContainer();
     this.showKeyboard();
     this.showMistakesContainer();
   }
 
-  showWordContainer(word) {
+  showWordContainer() {
     const wordContainer = document.createElement("div");
     wordContainer.classList.add("word");
     this.gameBoard.appendChild(wordContainer);
-    for (let i = 0; i < word.length; i++) {
+    for (let i = 0; i < state.word.length; i++) {
       const placeholder = this.createPlaceholder();
       wordContainer.appendChild(placeholder);
     }
@@ -37,13 +39,13 @@ class View {
   }
 
   showMistakesMessage() {
-    return `<span>You have used 0 of 10 possible mistakes `;
+    return `<span>You have used 0 of ${state.possibleMistakes} possible mistakes `;
   }
 
-  updateMistakesMessage(counter) {
+  updateMistakesMessage() {
     document.querySelector(
       ".mistakes"
-    ).innerHTML = `<span>You have used ${counter} of 10 possible mistakes `;
+    ).innerHTML = `<span>You have used ${state.madeMistakes} of ${state.possibleMistakes} possible mistakes `;
   }
 
   createMistakesContainer() {
