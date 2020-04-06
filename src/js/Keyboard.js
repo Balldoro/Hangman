@@ -54,12 +54,14 @@ class Keyboard {
 
   isGameWon() {
     if (state.isGameWon) {
+      this.view.reset();
       this.view.showWinView();
     }
   }
 
   isGameLost() {
     if (state.madeMistakes === state.possibleMistakes) {
+      this.view.reset();
       this.view.showLostView();
     }
   }

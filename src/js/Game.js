@@ -15,16 +15,12 @@ class Game {
     event.preventDefault();
     state.updatePossibleMistakes(this.settings.mistakes.value);
     state.updateDifficulty(this.settings.difficulty.value);
+    this.settings.reset();
     this.wordData.getWord().then(word => {
       state.updateWord(word);
       this.view.init();
       this.keyboard.init();
     });
-  }
-
-  restartGame() {
-    state.reset();
-    this.view.reset();
   }
 }
 
