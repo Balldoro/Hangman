@@ -3,6 +3,7 @@ import state from "./state";
 class View {
   constructor() {
     this.gameBoard = document.querySelector(".hangman");
+    this.settings = document.querySelector(".settings");
   }
 
   init() {
@@ -80,6 +81,7 @@ class View {
 
   showWinView() {
     const winView = this.createWinView();
+    this.showRestartButton(winView);
     this.gameBoard.appendChild(winView);
   }
 
@@ -92,6 +94,7 @@ class View {
 
   showLostView() {
     const lostView = this.createLostView();
+    this.showRestartButton(lostView);
     this.gameBoard.appendChild(lostView);
   }
 
@@ -100,6 +103,27 @@ class View {
     lostView.classList.add("game-view--lost");
     lostView.textContent = "You lost!";
     return lostView;
+  }
+
+  showRestartButton(view) {
+    const restartButton = this.createRestartButton();
+    view.appendChild(restartButton);
+  }
+
+  createRestartButton() {
+    const restartButton = document.createElement("button");
+    restartButton.classList.add("btn", "btn--restart");
+    restartButton.textContent = "Play again?";
+    this.handleOnClickRestartButton(restartButton);
+    return restartButton;
+  }
+
+  handleOnClickRestartButton(restartBtn) {
+    restartBtn.addEventListener("click", () => {
+      state.reset();
+      this.reset();
+      this.gameBoard.appendChild(this.settings);
+    });
   }
 
   reset() {
