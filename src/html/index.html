@@ -11,6 +11,7 @@
       <h1 class="hangman__title">Hangman Game</h1>
       <form class="settings">
         <div class="settings__difficulty-container">
+          <h2 class="settings__title">Choose difficulty level:</h2>
           <input
             type="radio"
             id="difficulty-1"
@@ -43,7 +44,7 @@
           >
         </div>
         <div class="settings__mistakes-container">
-          <label class="settings__mistake-label" for="mistakes-1">9</label>
+          <h2 class="settings__title">Choose amount of possible mistakes:</h2>
           <input
             type="radio"
             id="mistakes-1"
@@ -51,7 +52,7 @@
             class="settings__mistake"
             name="mistakes"
           />
-          <label class="settings__mistake-label" for="mistakes-2">10</label>
+          <label class="settings__mistake-label" for="mistakes-1">9</label>
           <input
             type="radio"
             id="mistakes-2"
@@ -59,7 +60,7 @@
             class="settings__mistake"
             name="mistakes"
           />
-          <label class="settings__mistake-label" for="mistakes-3">11</label>
+          <label class="settings__mistake-label" for="mistakes-2">10</label>
           <input
             type="radio"
             id="mistakes-3"
@@ -67,6 +68,7 @@
             class="settings__mistake"
             name="mistakes"
           />
+          <label class="settings__mistake-label" for="mistakes-3">11</label>
         </div>
         <button class="btn btn--start">Start New Game</button>
       </form>
