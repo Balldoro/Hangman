@@ -88,7 +88,14 @@ class View {
   createWinView() {
     const winView = document.createElement("div");
     winView.classList.add("game-view--win");
-    winView.textContent = "You win!";
+    winView.innerHTML = `
+    <h2 class="game-view__title">You won!</h2>
+    <p class="game-view__text">You guessed the word
+    <span class="game-view__text--important">${state.word.toLowerCase()}
+    </span> in <span class="game-view__text--important">${
+      state.usedKeys.length
+    }</span> attempt</p>
+    `;
     return winView;
   }
 
@@ -101,7 +108,14 @@ class View {
   createLostView() {
     const lostView = document.createElement("div");
     lostView.classList.add("game-view--lost");
-    lostView.textContent = "You lost!";
+    lostView.innerHTML = `
+    <h2 class="game-view__title">You lost!</h2>
+    <p class="game-view__text">The word you were looking for was 
+    <span class="game-view__text--important">${state.word.toLowerCase()}
+    </span></p>
+    <p class="game-view__text">You missed <span class="game-view__text--important">${state
+      .word.length - state.correctGuesses.length}</span> letters</p>
+    `;
     return lostView;
   }
 
