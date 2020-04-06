@@ -15,9 +15,9 @@
     background-color: $side-bg-color;
   }
   &--win {
-    color: $win-color;
+    color: $easy-color;
   }
   &--lost {
-    color: $lost-color;
+    color: $hard-color;
   }
 }

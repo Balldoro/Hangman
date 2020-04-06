@@ -1,12 +1,96 @@
 .settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   text-align: center;
-  &__mistake-label {
-    font-size: $l-font;
+  &__difficulty-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    @media (max-width: 620px) {
+      flex-direction: column;
+    }
+  }
+  &__difficulty {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+  &__mistake-label,
+  &__difficulty-label {
+    font-size: $m-font;
     color: $text-color;
   }
+
   &__difficulty-label {
-    font-size: $l-font;
-    color: $text-color;
+    position: relative;
+    width: 180px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 10px rgba(#000, 0.4);
+    transition: all 0.5s;
+    cursor: pointer;
+    &::before {
+      position: absolute;
+      top: 5px;
+      left: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% - 3px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $side-bg-color;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &[for="difficulty-1"] {
+      background-color: $easy-color;
+      &::before {
+        content: "Easy";
+      }
+    }
+    &[for="difficulty-2"] {
+      background-color: $medium-color;
+      &::before {
+        content: "Medium";
+      }
+    }
+    &[for="difficulty-3"] {
+      background-color: $hard-color;
+      &::before {
+        content: "Hard";
+      }
+    }
+    @media (max-width: 620px) {
+      width: 70%;
+      margin: 0 0 1.5rem 0;
+    }
+  }
+  #difficulty-1:checked + label {
+    border: 6px solid $easy-color;
+    border-radius: 6px;
+    border-top: none;
+    border-bottom: none;
+  }
+  #difficulty-2:checked + label {
+    border: 6px solid $medium-color;
+    border-radius: 6px;
+    border-top: none;
+    border-bottom: none;
+  }
+  #difficulty-3:checked + label {
+    border: 6px solid $hard-color;
+    border-radius: 6px;
+    border-top: none;
+    border-bottom: none;
   }
 }
