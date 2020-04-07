@@ -41,13 +41,11 @@ class View {
   }
 
   showMistakesMessage() {
-    return `<span>You have used 0 of ${state.possibleMistakes} possible mistakes `;
+    return `<span>You have used ${state.madeMistakes} of ${state.possibleMistakes} possible mistakes `;
   }
 
   updateMistakesMessage() {
-    document.querySelector(
-      ".mistakes"
-    ).innerHTML = `<span>You have used ${state.madeMistakes} of ${state.possibleMistakes} possible mistakes `;
+    document.querySelector(".mistakes").innerHTML = this.showMistakesMessage();
   }
 
   createMistakesContainer() {
@@ -128,16 +126,13 @@ class View {
     const restartButton = document.createElement("button");
     restartButton.classList.add("btn", "btn--restart");
     restartButton.textContent = "Play again?";
-    this.handleOnClickRestartButton(restartButton);
+    restartButton.addEventListener("click", () => this.restartView());
     return restartButton;
   }
 
-  handleOnClickRestartButton(restartBtn) {
-    restartBtn.addEventListener("click", () => {
-      state.reset();
-      this.reset();
-      this.gameBoard.appendChild(this.settings);
-    });
+  restartView() {
+    this.reset();
+    this.gameBoard.appendChild(this.settings);
   }
 
   reset() {

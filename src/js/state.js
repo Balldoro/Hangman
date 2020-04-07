@@ -6,7 +6,6 @@ const state = {
   pressedKey: "",
   usedKeys: [],
   correctGuesses: [],
-  isGameWon: false,
   updateWord(word) {
     this.word = word;
   },
@@ -26,9 +25,6 @@ const state = {
   updateCorrectGuesses(key) {
     this.correctGuesses.push(key);
   },
-  updateIsGameWon(bool) {
-    this.isGameWon = bool;
-  },
   reset() {
     this.word = "";
     this.possibleMistakes = 10;
@@ -36,7 +32,6 @@ const state = {
     this.pressedKey = "";
     this.usedKeys = [];
     this.correctGuesses = [];
-    this.isGameWon = false;
   }
 };
 

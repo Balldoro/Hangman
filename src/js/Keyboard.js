@@ -16,13 +16,9 @@ class Keyboard {
     const key = event.target;
     if (key.tagName === "BUTTON") {
       state.updateKeys(key.textContent);
-      this.disableKey(key);
+      this.view.disableKey(key);
       this.isKeyInWord(key);
     }
-  }
-
-  disableKey(key) {
-    this.view.disableKey(key);
   }
 
   isKeyInWord(key) {
@@ -42,10 +38,7 @@ class Keyboard {
   keyIsInWord(key) {
     state.word.split("").filter((letter, index) => {
       if (letter === key.textContent) {
-        state.updateCorrectGuesses(key);
-        state.updateIsGameWon(
-          state.word.length === state.correctGuesses.length
-        );
+        state.updateCorrectGuesses(letter);
         this.view.putLetterIntoPlaceholder(letter, index);
         this.isGameWon();
       }
@@ -53,7 +46,7 @@ class Keyboard {
   }
 
   isGameWon() {
-    if (state.isGameWon) {
+    if (state.word.length === state.correctGuesses.length) {
       this.view.reset();
       this.view.showWinView();
     }

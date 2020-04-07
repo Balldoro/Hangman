@@ -11,16 +11,20 @@ class Game {
     this.wordData = new WordData();
   }
 
-  startGame(event) {
-    event.preventDefault();
-    state.updatePossibleMistakes(this.settings.mistakes.value);
-    state.updateDifficulty(this.settings.difficulty.value);
-    this.settings.reset();
+  startGame() {
+    state.reset();
+    this.getSettings();
     this.wordData.getWord().then(word => {
       state.updateWord(word);
       this.view.init();
       this.keyboard.init();
     });
+  }
+
+  getSettings() {
+    state.updatePossibleMistakes(this.settings.mistakes.value);
+    state.updateDifficulty(this.settings.difficulty.value);
+    this.settings.reset();
   }
 }
 
