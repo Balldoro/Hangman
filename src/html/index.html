@@ -8,70 +8,72 @@
   </head>
   <body>
     <main class="hangman">
-      <h1 class="hangman__title">Hangman Game</h1>
-      <form class="settings">
-        <div class="settings__difficulty-container">
-          <h2 class="settings__title">Choose difficulty level:</h2>
-          <input
-            type="radio"
-            id="difficulty-1"
-            value="6"
-            class="settings__difficulty"
-            name="difficulty"
-          />
-          <label class="settings__difficulty-label" for="difficulty-1"
-            >Easy</label
-          >
-          <input
-            type="radio"
-            id="difficulty-2"
-            value="4"
-            class="settings__difficulty"
-            name="difficulty"
-          />
-          <label class="settings__difficulty-label" for="difficulty-2"
-            >Medium</label
-          >
-          <input
-            type="radio"
-            id="difficulty-3"
-            value="2"
-            class="settings__difficulty"
-            name="difficulty"
-          />
-          <label class="settings__difficulty-label" for="difficulty-3"
-            >Hard</label
-          >
-        </div>
-        <div class="settings__mistakes-container">
-          <h2 class="settings__title">Choose amount of possible mistakes:</h2>
-          <input
-            type="radio"
-            id="mistakes-1"
-            value="9"
-            class="settings__mistake"
-            name="mistakes"
-          />
-          <label class="settings__mistake-label" for="mistakes-1">9</label>
-          <input
-            type="radio"
-            id="mistakes-2"
-            value="10"
-            class="settings__mistake"
-            name="mistakes"
-          />
-          <label class="settings__mistake-label" for="mistakes-2">10</label>
-          <input
-            type="radio"
-            id="mistakes-3"
-            value="11"
-            class="settings__mistake"
-            name="mistakes"
-          />
-          <label class="settings__mistake-label" for="mistakes-3">11</label>
-        </div>
-        <button class="btn btn--start">Start New Game</button>
-      </form>
+      <section class="new-game">
+        <h1 class="new-game__title">Hangman Game</h1>
+        <form class="settings">
+          <div class="settings__difficulty-container">
+            <h2 class="settings__title">Choose difficulty level:</h2>
+            <input
+              type="radio"
+              id="difficulty-1"
+              value="6"
+              class="settings__difficulty"
+              name="difficulty"
+            />
+            <label class="settings__difficulty-label" for="difficulty-1"
+              >Easy</label
+            >
+            <input
+              type="radio"
+              id="difficulty-2"
+              value="4"
+              class="settings__difficulty"
+              name="difficulty"
+            />
+            <label class="settings__difficulty-label" for="difficulty-2"
+              >Medium</label
+            >
+            <input
+              type="radio"
+              id="difficulty-3"
+              value="2"
+              class="settings__difficulty"
+              name="difficulty"
+            />
+            <label class="settings__difficulty-label" for="difficulty-3"
+              >Hard</label
+            >
+          </div>
+          <div class="settings__mistakes-container">
+            <h2 class="settings__title">Choose amount of possible mistakes:</h2>
+            <input
+              type="radio"
+              id="mistakes-1"
+              value="9"
+              class="settings__mistake"
+              name="mistakes"
+            />
+            <label class="settings__mistake-label" for="mistakes-1">9</label>
+            <input
+              type="radio"
+              id="mistakes-2"
+              value="10"
+              class="settings__mistake"
+              name="mistakes"
+            />
+            <label class="settings__mistake-label" for="mistakes-2">10</label>
+            <input
+              type="radio"
+              id="mistakes-3"
+              value="11"
+              class="settings__mistake"
+              name="mistakes"
+            />
+            <label class="settings__mistake-label" for="mistakes-3">11</label>
+          </div>
+          <button class="btn btn--start">Start New Game</button>
+        </form>
+      </section>
     </main>
   </body>
 </html>

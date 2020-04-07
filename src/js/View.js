@@ -3,7 +3,7 @@ import state from "./state";
 class View {
   constructor() {
     this.gameBoard = document.querySelector(".hangman");
-    this.settings = document.querySelector(".settings");
+    this.newGameView = document.querySelector(".new-game");
   }
 
   init() {
@@ -132,7 +132,7 @@ class View {
 
   restartView() {
     this.reset();
-    this.gameBoard.appendChild(this.settings);
+    this.gameBoard.appendChild(this.newGameView);
   }
 
   reset() {
